@@ -1,5 +1,6 @@
 # DevSecOps Secure Pipeline Project
-
+## 🚀 Overview
+This project demonstrates a DevSecOps workflow by integrating security practices into a vulnerable Node.js application.
 ## Overview
 This project demonstrates a DevSecOps approach by integrating security practices into a CI/CD pipeline using a vulnerable Node.js application.
 
@@ -34,8 +35,6 @@ http://localhost:3000/search?q=<script>alert(1)</script>
 - Deploy to AWS
 # DevSecOps Secure Pipeline (Node.js + CI/CD + Security)
 
-## 🚀 Overview
-This project demonstrates a DevSecOps workflow by integrating security practices into a vulnerable Node.js application.
 
 ## 🛠️ Tech Stack
 - Node.js (Express)
@@ -49,11 +48,6 @@ This project demonstrates a DevSecOps workflow by integrating security practices
 - Type: Cross-Site Scripting (XSS)
 - Endpoint: `/search?q=`
 - Severity: High (OWASP Top 10)
-
-## 💥 Proof of Concept
-http://localhost:3000/search?q=
-<script>alert(1)</script>
-
 ## 📄 Security Report
 👉 [View Report](./reports/xss-report.md)
 
