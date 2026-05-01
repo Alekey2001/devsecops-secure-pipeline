@@ -1,18 +1,38 @@
-# DevSecOps Secure Pipeline Project
+# DevSecOps Secure Pipeline (Node.js + CI/CD + Security)
 
-## Overview
-This project demonstrates a DevSecOps pipeline integrating security into CI/CD workflows using a vulnerable Node.js application.
+## 🚀 Overview
+This project demonstrates a DevSecOps workflow by integrating security practices into a vulnerable Node.js application.
 
-## Tech Stack
+## 🛠️ Tech Stack
 - Node.js (Express)
-- CI/CD (GitHub Actions)
-- Cloud (AWS - upcoming)
+- Security Testing:
+  - SAST (planned)
+  - DAST (manual testing)
+  - Dependency Scanning (npm audit)
+- Tools: Burp Suite, OWASP methodology
 
-## Current Status
-- Vulnerable app deployed locally
-- XSS vulnerability intentionally present for testing
+## 🔍 Vulnerability Identified
+- Type: Cross-Site Scripting (XSS)
+- Endpoint: `/search?q=`
+- Severity: High (OWASP Top 10)
 
-## Next Steps
-- Integrate SAST (CodeQL)
-- Add DAST (OWASP ZAP)
-- Deploy to AWS
+## 💥 Proof of Concept
+http://localhost:3000/search?q=
+<script>alert(1)</script>
+
+## 📄 Security Report
+👉 [View Report](./reports/xss-report.md)
+
+## 📸 Evidence
+![XSS Evidence](./reports/rpt1.PNG)
+
+## 🧠 Security Approach
+- Vulnerability identification (OWASP Top 10)
+- Risk analysis
+- Remediation recommendations
+
+## 🎯 Objective
+Demonstrate practical skills in application security and DevSecOps practices.
+
+## 👤 Author
+Cybersecurity Jr. | DevSecOps Path | Cloud Security Focus
