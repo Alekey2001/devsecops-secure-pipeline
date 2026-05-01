@@ -1,1 +1,18 @@
-DevSecOps pipeline for Node.js/Express. Focus: Shift-Left security, SAST, SCA (npm audit/Snyk), and secret protection. Implements S-SDLC to mitigate OWASP Top 10 risks via automated GitHub Actions. Ideal for secure, scalable web development.
+# DevSecOps Secure Pipeline Project
+
+## Overview
+This project demonstrates a DevSecOps pipeline integrating security into CI/CD workflows using a vulnerable Node.js application.
+
+## Tech Stack
+- Node.js (Express)
+- CI/CD (GitHub Actions)
+- Cloud (AWS - upcoming)
+
+## Current Status
+- Vulnerable app deployed locally
+- XSS vulnerability intentionally present for testing
+
+## Next Steps
+- Integrate SAST (CodeQL)
+- Add DAST (OWASP ZAP)
+- Deploy to AWS
