@@ -1,2 +1,1 @@
-# devsecops-secure-pipeline
-# DevSecOps Secure Pipeline  Este proyecto demuestra la implementación de un ciclo de vida de desarrollo seguro (S-SDLC) para una aplicación basada en Node.js/Express. El objetivo es mover la seguridad al inicio del proceso (Shift-Left) para identificar riesgos antes de llegar a producción.
+DevSecOps pipeline for Node.js/Express. Focus: Shift-Left security, SAST, SCA (npm audit/Snyk), and secret protection. Implements S-SDLC to mitigate OWASP Top 10 risks via automated GitHub Actions. Ideal for secure, scalable web development.
