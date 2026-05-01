@@ -34,5 +34,5 @@ http://localhost:3000/search?q=
 ## 🎯 Objective
 Demonstrate practical skills in application security and DevSecOps practices.
 
-## 👤 Author
+## 👤 Jesus A. Rodriguez
 Cybersecurity Jr. | DevSecOps Path | Cloud Security Focus
