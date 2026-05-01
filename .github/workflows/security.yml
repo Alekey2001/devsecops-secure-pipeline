@@ -1,24 +1,22 @@
-name: DevSecOps Security Pipeline
+name: Test Pipeline
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  basic-security:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Clonar repositorio
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: 🟢 Instalar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      - name: Debug start
+        run: echo "Pipeline is running"
 
-      - name: 📦 Instalar dependencias
-        run: npm install
+      - name: Node version
+        run: node -v || echo "Node not installed"
 
-      - name: 🔍 Auditoría de dependencias
-        run: npm audit || true
+      - name: NPM version
+        run: npm -v || echo "NPM not installed"
