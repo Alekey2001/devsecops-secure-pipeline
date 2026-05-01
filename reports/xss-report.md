@@ -58,6 +58,15 @@ http://localhost:3000/search?q=<script>alert(1)</script>
 - Vulnerability identification (OWASP Top 10)
 - Risk analysis
 - Remediation recommendations
+## ⚙️ CI/CD Security Pipeline
+
+This project includes an automated DevSecOps pipeline using GitHub Actions:
+
+- Dependency scanning (npm audit)
+- Static code analysis (CodeQL)
+- Continuous integration on every push
+## 📸 Evidence
+![XSS Evidence](./reports/rpt2.PNG)
 
 ## 🎯 Objective
 Demonstrate practical skills in application security and DevSecOps practices.
