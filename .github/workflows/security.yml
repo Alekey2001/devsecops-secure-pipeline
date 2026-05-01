@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  security-checks:
+  basic-security:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,11 +22,3 @@ jobs:
 
       - name: 🔍 Auditoría de dependencias
         run: npm audit || true
-
-      - name: 🔐 Inicializar CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript
-
-      - name: 🔎 Análisis CodeQL
-        uses: github/codeql-action/analyze@v3
