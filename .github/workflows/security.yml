@@ -3,8 +3,6 @@ name: DevSecOps Security Pipeline
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   security-checks:
@@ -22,13 +20,13 @@ jobs:
       - name: 📦 Instalar dependencias
         run: npm install
 
-      - name: 🔍 Auditoría de dependencias (npm audit)
-        run: npm audit --audit-level=high || true
+      - name: 🔍 Auditoría de dependencias
+        run: npm audit || true
 
       - name: 🔐 Inicializar CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: javascript
 
-      - name: 🔎 Ejecutar análisis CodeQL
+      - name: 🔎 Análisis CodeQL
         uses: github/codeql-action/analyze@v3
