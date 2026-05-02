@@ -1,17 +1,27 @@
-const express = require("express");
+const express = require('express');
+const helmet = require('helmet');
+
 const app = express();
 
-// Endpoint principal
-app.get("/", (req, res) => {
-  res.send("DevSecOps Pipeline Running");
-});
+// 🔐 Seguridad con headers
+app.use(helmet());
 
-// Endpoint vulnerable (XSS)
-app.get("/search", (req, res) => {
-  const query = req.query.q;
-  res.send(`Results for: ${query}`);
+// CSP personalizada (clave)
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+  })
+);
+
+app.get('/', (req, res) => {
+  res.send('DevSecOps Pipeline Running');
 });
 
 app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+  console.log('Server running on port 3000');
 });
