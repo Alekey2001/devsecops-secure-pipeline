@@ -3,17 +3,35 @@ const helmet = require('helmet');
 
 const app = express();
 
-// 🔐 Seguridad con headers
-app.use(helmet());
+// ❌ Quitar firma del servidor (MUY IMPORTANTE)
+app.disable('x-powered-by');
 
-// CSP personalizada (clave)
+// 🔐 Helmet completo y bien configurado
 app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'"],
-      objectSrc: ["'none'"],
-      upgradeInsecureRequests: [],
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+
+        // 🔥 CLAVE (lo que te está marcando ZAP)
+        frameAncestors: ["'none'"],   // Anti-clickjacking
+        formAction: ["'self'"],
+
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'", "data:"],
+
+        objectSrc: ["'none'"],
+        upgradeInsecureRequests: [],
+      },
+    },
+
+    // 🔐 Fuerza X-Content-Type-Options
+    noSniff: true,
+
+    // 🔐 Anti Clickjacking extra (fallback)
+    frameguard: {
+      action: 'deny',
     },
   })
 );
