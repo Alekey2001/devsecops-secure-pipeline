@@ -26,7 +26,50 @@ A dynamic application security test (DAST) was performed against the Node.js app
   - X-Frame-Options
 
 ## Evidence
+## 🔐 Security (DAST - OWASP ZAP)
 
+A security scan was performed using OWASP ZAP.
+
+### Findings:
+- Missing Content Security Policy (CSP)
+- Missing anti-clickjacking protection
+- Information disclosure via headers
+
+### Mitigation:
+- Implemented Helmet in Express
+- Configured strict CSP directives
+- Removed X-Powered-By header
+- Added X-Content-Type-Options
+
+
+## Security Scan Summary (OWASP ZAP)
+
+A dynamic security analysis was performed using OWASP ZAP.
+
+### Findings
+- Initial issues:
+  - Missing/incomplete Content Security Policy (CSP)
+  - Clickjacking exposure
+  - Information disclosure via headers
+
+### Remediation
+- Disabled server fingerprinting (X-Powered-By)
+- Implemented strict CSP with explicit directives
+- Added secure headers via Helmet:
+  - X-Frame-Options
+  - X-Content-Type-Options
+  - HSTS
+
+### Validation
+- Manual verification of HTTP headers
+- Re-scan with OWASP ZAP
+
+### Result
+- Critical issues resolved
+- Remaining alerts classified as medium/low or false positives due to scanner strictness
+
+### Conclusion
+Application hardened following OWASP best practices, reducing attack surface and improving security posture.
 ![ZAP Scan](./rpt3.PNG)
 
 ## Conclusion

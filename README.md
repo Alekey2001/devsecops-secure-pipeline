@@ -36,7 +36,17 @@ OWASP ZAP (DAST)
 A dynamic application security test (DAST) was performed against the Node.js application.
 
 ## Findings
+## Security Improvements
 
+Using OWASP ZAP, multiple security misconfigurations were identified and mitigated:
+
+- Implemented Content Security Policy (CSP) with strict directives
+- Added protection against Clickjacking (frame-ancestors, X-Frame-Options)
+- Disabled server fingerprinting (X-Powered-By header)
+- Enforced MIME type checking (X-Content-Type-Options)
+
+These improvements significantly reduce attack surface against XSS, injection, and UI redressing attacks.
+Implemented HTTP security hardening with Helmet and custom CSP. Mitigated XSS, clickjacking, and information disclosure risks. Validated headers manually and with OWASP ZAP, reducing findings to low/acceptable levels.
 ### 1. Cross-Site Scripting (XSS)
 - Risk: High
 - Description: Reflected XSS vulnerability detected

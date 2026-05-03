@@ -3,36 +3,36 @@ const helmet = require('helmet');
 
 const app = express();
 
-// ❌ Quitar firma del servidor (MUY IMPORTANTE)
+// 🔐 Quitar fingerprint
 app.disable('x-powered-by');
 
-// 🔐 Helmet completo y bien configurado
+// 🔥 CSP MANUAL (ANTES DE HELMET)
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; " +
+    "script-src 'self'; " +
+    "style-src 'self' 'unsafe-inline'; " +
+    "img-src 'self' data:; " +
+    "font-src 'self' data:; " +
+    "connect-src 'self'; " +
+    "frame-src 'none'; " +
+    "object-src 'none'; " +
+    "base-uri 'self'; " +
+    "form-action 'self'; " +
+    "frame-ancestors 'none'; " +
+    "manifest-src 'self'; " +
+    "media-src 'self';"
+  );
+  next();
+});
+
+// 🔐 Helmet (mantener, pero SIN CSP para evitar conflicto)
 app.use(
   helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-
-        // 🔥 CLAVE (lo que te está marcando ZAP)
-        frameAncestors: ["'none'"],   // Anti-clickjacking
-        formAction: ["'self'"],
-
-        scriptSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", "data:"],
-
-        objectSrc: ["'none'"],
-        upgradeInsecureRequests: [],
-      },
-    },
-
-    // 🔐 Fuerza X-Content-Type-Options
+    contentSecurityPolicy: false, // 👈 IMPORTANTE
+    frameguard: { action: 'deny' },
     noSniff: true,
-
-    // 🔐 Anti Clickjacking extra (fallback)
-    frameguard: {
-      action: 'deny',
-    },
   })
 );
 
