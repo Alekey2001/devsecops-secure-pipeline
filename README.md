@@ -2,7 +2,8 @@
 - Type: Cross-Site Scripting (XSS)
 - Endpoint: `/search?q=`
 - Severity: High
-
+## 📄 Full Report AWS CONFIG 
+👉 [View Detailed Report](./reports/AWS-report.md)
 ## 💥 Proof of Concept
 http://localhost:3000/search?q=<script>alert(1)</script>
 
